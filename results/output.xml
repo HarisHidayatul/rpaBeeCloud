@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.2 on win32)" generated="20230412 10:30:18.566" rpa="false" schemaversion="3">
+<suite id="s1" name="Project1" source="C:\Users\haris\Documents\robotFramework\project1">
+<suite id="s1-s1" name="Test1" source="C:\Users\haris\Documents\robotFramework\project1\test1.robot">
+<test id="s1-s1-t1" name="Buka Gugel" line="5">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://youtube.com</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230412 10:30:19.158" level="INFO">Opening browser 'Edge' to base url 'https://youtube.com'.</msg>
+<status status="PASS" starttime="20230412 10:30:19.156" endtime="20230412 10:30:38.471"/>
+</kw>
+<status status="PASS" starttime="20230412 10:30:19.153" endtime="20230412 10:30:38.473"/>
+</test>
+<status status="PASS" starttime="20230412 10:30:18.669" endtime="20230412 10:30:38.514"/>
+</suite>
+<status status="PASS" starttime="20230412 10:30:18.587" endtime="20230412 10:30:38.540"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Project1">Project1</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test1">Project1.Test1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

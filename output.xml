@@ -1,0 +1,2572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.2 on win32)" generated="20230426 16:15:51.218" rpa="false" schemaversion="3">
+<suite id="s1" name="Pembelian" source="C:\Users\haris\Documents\robotFramework\project1\pembelian.robot">
+<test id="s1-t1" name="Buka Browser Dan Lakukan Login" line="19">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>https://app.beecloud.id/site/login</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230426 16:15:52.589" level="INFO">Opening browser 'Edge' to base url 'https://app.beecloud.id/site/login'.</msg>
+<status status="PASS" starttime="20230426 16:15:52.588" endtime="20230426 16:16:00.956"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230426 16:16:00.957" endtime="20230426 16:16:01.129"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>id:loginform-username</arg>
+<arg>hidayatulloh.haris@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:01.132" level="INFO">Typing text 'hidayatulloh.haris@gmail.com' into text field 'id:loginform-username'.</msg>
+<status status="PASS" starttime="20230426 16:16:01.130" endtime="20230426 16:16:01.439"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>id:loginform-password</arg>
+<arg>KNw8CeD0</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:01.446" level="INFO">Typing text 'KNw8CeD0' into text field 'id:loginform-password'.</msg>
+<status status="PASS" starttime="20230426 16:16:01.439" endtime="20230426 16:16:01.595"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="login-form"]/div[3]/ul/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:01.602" level="INFO">Clicking element 'xpath://*[@id="login-form"]/div[3]/ul/button'.</msg>
+<status status="PASS" starttime="20230426 16:16:01.595" endtime="20230426 16:16:07.973"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:10.987" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230426 16:16:07.975" endtime="20230426 16:16:10.987"/>
+</kw>
+<status status="PASS" starttime="20230426 16:15:52.587" endtime="20230426 16:16:10.989"/>
+</test>
+<test id="s1-t2" name="Buka Menu Pembelian Kemudian Buat Baru" line="28">
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="master_menu_purc"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:11.000" level="INFO">Clicking element 'xpath://*[@id="master_menu_purc"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:10.998" endtime="20230426 16:16:11.234"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:12.242" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:11.235" endtime="20230426 16:16:12.243"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="menu_purc"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:12.277" level="INFO">Clicking element 'xpath://*[@id="menu_purc"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:12.276" endtime="20230426 16:16:13.886"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:16.901" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230426 16:16:13.887" endtime="20230426 16:16:16.901"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="add_purc"]/a[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:16.905" level="INFO">Clicking element 'xpath://*[@id="add_purc"]/a[2]'.</msg>
+<status status="PASS" starttime="20230426 16:16:16.901" endtime="20230426 16:16:19.713"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:21.727" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:16:19.715" endtime="20230426 16:16:21.727"/>
+</kw>
+<status status="PASS" starttime="20230426 16:16:10.995" endtime="20230426 16:16:21.727"/>
+</test>
+<test id="s1-t3" name="Get API Pembelian Kemudian Lakukan Input Data" line="36">
+<for flavor="IN RANGE">
+<var>${infinityLoop}</var>
+<value>9999</value>
+<iter>
+<var name="${infinityLoop}">0</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230426 16:16:21.734" level="INFO">Creating Session using : alias=myssion, url=http://localhost:8000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230426 16:16:21.734" endtime="20230426 16:16:21.735"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>${child_url}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230426 16:16:21.735" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:16:24.437" level="INFO">GET Request : url=http://localhost:8000/robot/api/pembelian/show 
+ path_url=/robot/api/pembelian/show 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230426 16:16:24.437" level="INFO">GET Response : url=http://localhost:8000/robot/api/pembelian/show 
+ status=200, reason=OK 
+ headers={'Host': 'localhost:8000', 'Date': 'Wed, 26 Apr 2023 09:16:24 GMT, Wed, 26 Apr 2023 09:16:24 GMT', 'Connection': 'close', 'X-Powered-By': 'PHP/8.0.11', 'Cache-Control': 'no-cache, private', 'Content-Type': 'application/json', 'X-Clockwork-Id': '1682500584-0938-1649679023', 'X-Clockwork-Version': '5.1.12', 'Server-Timing': 'app; dur=616.17016792297; desc="Application", db; dur=36.2; desc="Database", timeline-event-0; dur=182.43885040283; desc="Controller"', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6ImVUVy9TNFdDRGpjYjVTODZLTWQvTFE9PSIsInZhbHVlIjoiT29hWnZwU2VBMFN1d2xLUEVYenhIYTNBUzFybm5VUEFyZHBtcVE1WVI4MWJrODJMSmlBR2QyaFR6eGVPcXJHRTRDNjI0Z0k1RWl3WWlHR2JvOXNkVTlsTTlrUlUvazcwbExyZVJzRE00Mk9vVFBIbXJFM1hwZzVFdnpsU2lRL1kiLCJtYWMiOiIzZDE2ZmY0YTUzZmU3Y2ViMWNhYjBiMGZkMzZlZTEyYzNhNzgxOWEwYjljNDA5YTFlMTJhMGZiMDI3Yjc5OTE5IiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:16:24 GMT; Max-Age=7200; path=/; samesite=lax, laravel_session=eyJpdiI6Im1GcFBDbmM0WDlEczNZcmgyMHo4eUE9PSIsInZhbHVlIjoiUmE5UFNoZGNaZExRVWZIV2JyZlJEMXd1WUV1OFFISjJJc3ExS2NhUStLdDE2Yk9HTFRKTjEza09BWE5Hd21CUnhiTjluaHEwSll2d2hadGV3WjhTZkovdGhLOGdJeWRsaFh3bWQ4RmtJL091OW5DTDFMOWlDVDcwL3E5bzZzeSsiLCJtYWMiOiI4ZTgxZTBiOGJiZTk2YWRhMzYzZWZhOTljZjMxYzA0OGE2Yzg4MDhkZjhlZWU1ZWJhZWMyMDVlMGUyMTc0MjRjIiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:16:24 GMT; Max-Age=7200; path=/; httponly; samesite=lax'} 
+ body={"Tanggal":"11-04-2023","Termin":"Kasir","Cabang":"Bekasi","idRobotPembelian":35,"Data":[{"idBeeCloud":"H001043","namaItem":"Kertas Nasi","qty":200,"total":20000,"satuan":"pcs","hargaSatuan":100,"gudang":"Gudang"}]} 
+ </msg>
+<msg timestamp="20230426 16:16:24.437" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230426 16:16:21.735" endtime="20230426 16:16:24.437"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:24.437" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20230426 16:16:24.437" endtime="20230426 16:16:24.437"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230426 16:16:24.437" endtime="20230426 16:16:24.437"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${contentType}</var>
+<arg>${response.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230426 16:16:24.442" level="INFO">${contentType} = application/json</msg>
+<status status="PASS" starttime="20230426 16:16:24.437" endtime="20230426 16:16:24.442"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${contentType}</arg>
+<arg>application/json</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230426 16:16:24.442" endtime="20230426 16:16:24.442"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${contentString}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:24.442" level="INFO">${contentString} = {"Tanggal":"11-04-2023","Termin":"Kasir","Cabang":"Bekasi","idRobotPembelian":35,"Data":[{"idBeeCloud":"H001043","namaItem":"Kertas Nasi","qty":200,"total":20000,"satuan":"pcs","hargaSatuan":100,"guda...</msg>
+<status status="PASS" starttime="20230426 16:16:24.442" endtime="20230426 16:16:24.442"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${contentData}</var>
+<arg>json.loads($contentString)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230426 16:16:24.447" level="INFO">${contentData} = {'Tanggal': '11-04-2023', 'Termin': 'Kasir', 'Cabang': 'Bekasi', 'idRobotPembelian': 35, 'Data': [{'idBeeCloud': 'H001043', 'namaItem': 'Kertas Nasi', 'qty': 200, 'total': 20000, 'satuan': 'pcs', 'har...</msg>
+<status status="PASS" starttime="20230426 16:16:24.442" endtime="20230426 16:16:24.447"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${Tanggal}</var>
+<arg>${contentData['Tanggal']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:24.447" level="INFO">${Tanggal} = 11-04-2023</msg>
+<status status="PASS" starttime="20230426 16:16:24.447" endtime="20230426 16:16:24.447"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${Termin}</var>
+<arg>${contentData['Termin']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:24.452" level="INFO">${Termin} = Kasir</msg>
+<status status="PASS" starttime="20230426 16:16:24.447" endtime="20230426 16:16:24.452"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${Cabang}</var>
+<arg>${contentData['Cabang']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:24.452" level="INFO">${Cabang} = Bekasi</msg>
+<status status="PASS" starttime="20230426 16:16:24.452" endtime="20230426 16:16:24.452"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${idRobotPembelian}</var>
+<arg>${contentData['idRobotPembelian']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:24.452" level="INFO">${idRobotPembelian} = 35</msg>
+<status status="PASS" starttime="20230426 16:16:24.452" endtime="20230426 16:16:24.452"/>
+</kw>
+<kw name="Copy List" library="Collections">
+<var>@{DataPembelian}</var>
+<arg>${contentData['Data']}</arg>
+<arg>deepcopy=True</arg>
+<doc>Returns a copy of the given list.</doc>
+<msg timestamp="20230426 16:16:24.452" level="INFO">@{DataPembelian} = [ {'idBeeCloud': 'H001043', 'namaItem': 'Kertas Nasi', 'qty': 200, 'total': 20000, 'satuan': 'pcs', 'hargaSatuan': 100, 'gudang': 'Gudang'} ]</msg>
+<status status="PASS" starttime="20230426 16:16:24.452" endtime="20230426 16:16:24.452"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${countPembelian}</var>
+<arg>${DataPembelian}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230426 16:16:24.457" level="INFO">Length is 1</msg>
+<msg timestamp="20230426 16:16:24.457" level="INFO">${countPembelian} = 1</msg>
+<status status="PASS" starttime="20230426 16:16:24.457" endtime="20230426 16:16:24.457"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${countPembelian} == 0</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20230426 16:16:24.457" endtime="20230426 16:16:24.457"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="trxdate-id"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:24.457" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to xpath://*[@id="trxdate-id"] element.</msg>
+<msg timestamp="20230426 16:16:24.807" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230426 16:16:24.807" level="INFO">Sending key a</msg>
+<msg timestamp="20230426 16:16:24.807" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20230426 16:16:24.807" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230426 16:16:24.807" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230426 16:16:24.457" endtime="20230426 16:16:24.852"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="trxdate-id"]</arg>
+<arg>${Tanggal}[0:10]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:24.852" level="INFO">Typing text '11-04-2023' into text field 'xpath://*[@id="trxdate-id"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:24.852" endtime="20230426 16:16:25.036"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="trxdate-id"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:25.037" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="trxdate-id"] element.</msg>
+<msg timestamp="20230426 16:16:25.352" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:16:25.352" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:16:25.036" endtime="20230426 16:16:25.440"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:26.460" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:25.440" endtime="20230426 16:16:26.460"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_cash_id-id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:26.462" level="INFO">Clicking element 'xpath://*[@id="s2id_cash_id-id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:16:26.461" endtime="20230426 16:16:26.592"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen2_search"]</arg>
+<arg>${Termin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:26.592" level="INFO">Typing text 'Kasir' into text field 'xpath://*[@id="s2id_autogen2_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:26.592" endtime="20230426 16:16:26.807"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen2_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:26.807" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen2_search"] element.</msg>
+<msg timestamp="20230426 16:16:27.157" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:16:27.157" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:16:26.807" endtime="20230426 16:16:27.227"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:28.238" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:27.227" endtime="20230426 16:16:28.238"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:16:28.238" level="INFO">${loopCount} = 0</msg>
+<status status="PASS" starttime="20230426 16:16:28.238" endtime="20230426 16:16:28.238"/>
+</kw>
+<for flavor="IN">
+<var>${DataLoop}</var>
+<value>@{DataPembelian}</value>
+<iter>
+<var name="${DataLoop}">{'idBeeCloud': 'H001043', 'namaItem': 'Kertas Nasi', 'qty': 200, 'total': 20000, 'satuan': 'pcs', 'hargaSatuan': 100, 'gudang': 'Gudang'}</var>
+<kw name="Convert To String" library="BuiltIn">
+<var>${idItemLoop}</var>
+<arg>${DataLoop['idBeeCloud']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:28.242" level="INFO">${idItemLoop} = H001043</msg>
+<status status="PASS" starttime="20230426 16:16:28.242" endtime="20230426 16:16:28.242"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:16:28.247" level="INFO">Executing JavaScript:
+window.scrollTo(0,document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:16:28.242" endtime="20230426 16:16:28.277"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:29.277" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:28.277" endtime="20230426 16:16:29.277"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_item_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:29.282" level="INFO">Clicking element 'xpath://*[@id="s2id_item_id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:16:29.277" endtime="20230426 16:16:29.387"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen5_search"]</arg>
+<arg>${idItemLoop}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:29.390" level="INFO">Typing text 'H001043' into text field 'xpath://*[@id="s2id_autogen5_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:29.388" endtime="20230426 16:16:29.555"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:31.560" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:16:29.555" endtime="20230426 16:16:31.560"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen5_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:31.560" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen5_search"] element.</msg>
+<msg timestamp="20230426 16:16:31.877" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:16:31.877" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:16:31.560" endtime="20230426 16:16:32.130"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:33.131" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:32.130" endtime="20230426 16:16:33.131"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${loopCount+1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:16:33.134" level="INFO">${loopCount} = 1</msg>
+<status status="PASS" starttime="20230426 16:16:33.132" endtime="20230426 16:16:33.134"/>
+</kw>
+<status status="PASS" starttime="20230426 16:16:28.242" endtime="20230426 16:16:33.134"/>
+</iter>
+<status status="PASS" starttime="20230426 16:16:28.238" endtime="20230426 16:16:33.134"/>
+</for>
+<if>
+<branch type="IF" condition="${loopCount} &gt; 1">
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<for flavor="IN">
+<var>${DataLoop}</var>
+<value>@{DataPembelian}</value>
+<iter>
+<var name="${DataLoop}"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${loopCount+1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newXPath}</var>
+<arg>${xpathTablePembelian}/tr[${loopCount}]/td[11]/a[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight/3)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath:${newXPath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>${DataLoop['hargaSatuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_dlgpurcd_wh_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>${DataLoop['gudang']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="btnAdd"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.134"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.149"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['namaItem']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.149" endtime="20230426 16:16:33.151"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['qty']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.151" endtime="20230426 16:16:33.152"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['satuan']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.152" endtime="20230426 16:16:33.152"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>Rp.</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.152" endtime="20230426 16:16:33.152"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['total']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.152" endtime="20230426 16:16:33.152"/>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<var>${original_text}</var>
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.152" endtime="20230426 16:16:33.152"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${original_text} ${newText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.152" endtime="20230426 16:16:33.152"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:16:33.152" endtime="20230426 16:16:33.152"/>
+</kw>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.152"/>
+</iter>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.152"/>
+</for>
+<status status="NOT RUN" starttime="20230426 16:16:33.134" endtime="20230426 16:16:33.152"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" library="BuiltIn">
+<var>${newXPath}</var>
+<arg>${xpathTablePembelian}/tr/td[11]/a[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:16:33.152" level="INFO">${newXPath} = /html/body/div[3]/div[2]/div[1]/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div/table/tbody/tr/td[11]/a[1]</msg>
+<status status="PASS" starttime="20230426 16:16:33.152" endtime="20230426 16:16:33.152"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight/3)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:16:33.152" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight/3)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:16:33.152" endtime="20230426 16:16:33.169"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:34.184" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:33.169" endtime="20230426 16:16:34.184"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath:${newXPath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:34.184" level="INFO">Clicking element 'xpath:/html/body/div[3]/div[2]/div[1]/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div/table/tbody/tr/td[11]/a[1]'.</msg>
+<status status="PASS" starttime="20230426 16:16:34.184" endtime="20230426 16:16:34.289"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:36.296" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:16:34.289" endtime="20230426 16:16:36.296"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:36.296" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to xpath://*[@id="dlgpurcd_qty"] element.</msg>
+<msg timestamp="20230426 16:16:36.651" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230426 16:16:36.651" level="INFO">Sending key a</msg>
+<msg timestamp="20230426 16:16:36.651" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20230426 16:16:36.651" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230426 16:16:36.651" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230426 16:16:36.296" endtime="20230426 16:16:36.693"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:36.693" level="INFO">Typing text '200' into text field 'xpath://*[@id="dlgpurcd_qty"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:36.693" endtime="20230426 16:16:36.801"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:36.801" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to xpath://*[@id="dlgpurcd_listprice"] element.</msg>
+<msg timestamp="20230426 16:16:37.110" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230426 16:16:37.110" level="INFO">Sending key a</msg>
+<msg timestamp="20230426 16:16:37.110" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20230426 16:16:37.110" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230426 16:16:37.110" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230426 16:16:36.801" endtime="20230426 16:16:37.143"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>${DataLoop['hargaSatuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:37.143" level="INFO">Typing text '100' into text field 'xpath://*[@id="dlgpurcd_listprice"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:37.143" endtime="20230426 16:16:37.285"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_dlgpurcd_wh_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:37.286" level="INFO">Clicking element 'xpath://*[@id="s2id_dlgpurcd_wh_id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:16:37.286" endtime="20230426 16:16:37.393"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>${DataLoop['gudang']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:37.393" level="INFO">Typing text 'Gudang' into text field 'xpath://*[@id="s2id_autogen10_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:37.393" endtime="20230426 16:16:37.577"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:37.578" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen10_search"] element.</msg>
+<msg timestamp="20230426 16:16:37.877" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:16:37.877" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:16:37.577" endtime="20230426 16:16:37.918"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:16:37.918" level="INFO">Executing JavaScript:
+window.scrollTo(0,document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:16:37.918" endtime="20230426 16:16:37.918"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:38.920" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:37.918" endtime="20230426 16:16:38.920"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="btnAdd"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:38.920" level="INFO">Clicking element 'xpath://*[@id="btnAdd"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:38.920" endtime="20230426 16:16:39.078"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:40.093" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:39.079" endtime="20230426 16:16:40.093"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['namaItem']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:40.093" level="INFO">Typing text 'Kertas Nasi' into text field 'xpath://*[@id="purc-note"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:40.093" endtime="20230426 16:16:40.267"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>TAB</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:40.268" level="INFO">Sending key(s) ('TAB',) to xpath://*[@id="purc-note"] element.</msg>
+<msg timestamp="20230426 16:16:40.622" level="INFO">Pressing special key TAB to element.</msg>
+<msg timestamp="20230426 16:16:40.622" level="INFO">Releasing special key TAB.</msg>
+<status status="PASS" starttime="20230426 16:16:40.267" endtime="20230426 16:16:40.667"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:40.667" level="INFO">Typing text '200' into text field 'xpath://*[@id="purc-note"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:40.667" endtime="20230426 16:16:40.784"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>SPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:40.784" level="INFO">Sending key(s) ('SPACE',) to xpath://*[@id="purc-note"] element.</msg>
+<msg timestamp="20230426 16:16:41.124" level="INFO">Pressing special key SPACE to element.</msg>
+<msg timestamp="20230426 16:16:41.124" level="INFO">Releasing special key SPACE.</msg>
+<status status="PASS" starttime="20230426 16:16:40.784" endtime="20230426 16:16:41.145"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['satuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:41.145" level="INFO">Typing text 'pcs' into text field 'xpath://*[@id="purc-note"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:41.145" endtime="20230426 16:16:41.244"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>TAB</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:41.244" level="INFO">Sending key(s) ('TAB',) to xpath://*[@id="purc-note"] element.</msg>
+<msg timestamp="20230426 16:16:41.574" level="INFO">Pressing special key TAB to element.</msg>
+<msg timestamp="20230426 16:16:41.574" level="INFO">Releasing special key TAB.</msg>
+<status status="PASS" starttime="20230426 16:16:41.244" endtime="20230426 16:16:41.598"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>Rp</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:41.598" level="INFO">Typing text 'Rp' into text field 'xpath://*[@id="purc-note"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:41.598" endtime="20230426 16:16:41.717"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>SPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:41.717" level="INFO">Sending key(s) ('SPACE',) to xpath://*[@id="purc-note"] element.</msg>
+<msg timestamp="20230426 16:16:42.036" level="INFO">Pressing special key SPACE to element.</msg>
+<msg timestamp="20230426 16:16:42.036" level="INFO">Releasing special key SPACE.</msg>
+<status status="PASS" starttime="20230426 16:16:41.717" endtime="20230426 16:16:42.052"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['total']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:42.052" level="INFO">Typing text '20000' into text field 'xpath://*[@id="purc-note"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:42.052" endtime="20230426 16:16:42.193"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:42.193" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="purc-note"] element.</msg>
+<msg timestamp="20230426 16:16:42.484" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:16:42.484" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:16:42.193" endtime="20230426 16:16:42.508"/>
+</kw>
+<status status="PASS" starttime="20230426 16:16:33.152" endtime="20230426 16:16:42.508"/>
+</branch>
+<status status="PASS" starttime="20230426 16:16:33.134" endtime="20230426 16:16:42.508"/>
+</if>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_purc-branch_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:42.508" level="INFO">Clicking element 'xpath://*[@id="s2id_purc-branch_id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:16:42.508" endtime="20230426 16:16:42.653"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen6_search"]</arg>
+<arg>${Cabang}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:42.653" level="INFO">Typing text 'Bekasi' into text field 'xpath://*[@id="s2id_autogen6_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:42.653" endtime="20230426 16:16:42.849"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen6_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:42.849" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen6_search"] element.</msg>
+<msg timestamp="20230426 16:16:43.134" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:16:43.134" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:16:42.849" endtime="20230426 16:16:43.220"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:44.235" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:43.220" endtime="20230426 16:16:44.235"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:16:44.235" level="INFO">Executing JavaScript:
+window.scrollTo(0,document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:16:44.235" endtime="20230426 16:16:44.250"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:45.255" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:44.250" endtime="20230426 16:16:45.255"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="grpbtn-tour-purc"]/div/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:45.255" level="INFO">Clicking element 'xpath://*[@id="grpbtn-tour-purc"]/div/div/button'.</msg>
+<status status="PASS" starttime="20230426 16:16:45.255" endtime="20230426 16:16:45.405"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:47.406" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:16:45.405" endtime="20230426 16:16:47.407"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,-document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:16:47.410" level="INFO">Executing JavaScript:
+window.scrollTo(0,-document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:16:47.407" endtime="20230426 16:16:47.423"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:48.438" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:47.423" endtime="20230426 16:16:48.438"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="new_button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:48.439" level="INFO">Clicking element 'xpath://*[@id="new_button"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:48.438" endtime="20230426 16:16:50.710"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:52.719" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:16:50.710" endtime="20230426 16:16:52.719"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion2</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230426 16:16:52.719" level="INFO">Creating Session using : alias=myssion2, url=http://localhost:8000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230426 16:16:52.719" endtime="20230426 16:16:52.719"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response2}</var>
+<arg>myssion2</arg>
+<arg>/robot/api/pembelian/done/${idRobotPembelian}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230426 16:16:52.719" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:16:55.229" level="INFO">GET Request : url=http://localhost:8000/robot/api/pembelian/done/35 
+ path_url=/robot/api/pembelian/done/35 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230426 16:16:55.229" level="INFO">GET Response : url=http://localhost:8000/robot/api/pembelian/done/35 
+ status=200, reason=OK 
+ headers={'Host': 'localhost:8000', 'Date': 'Wed, 26 Apr 2023 09:16:55 GMT, Wed, 26 Apr 2023 09:16:55 GMT', 'Connection': 'close', 'X-Powered-By': 'PHP/8.0.11', 'Content-Type': 'text/html; charset=UTF-8', 'Cache-Control': 'no-cache, private', 'X-Clockwork-Id': '1682500615-0036-983687033', 'X-Clockwork-Version': '5.1.12', 'Server-Timing': 'app; dur=408.47682952881; desc="Application", db; dur=16.55; desc="Database", timeline-event-0; dur=88.805913925171; desc="Controller"', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IkRYMDlnaDAvSUhZSXFobktNWVI2SFE9PSIsInZhbHVlIjoid0o4VzNHSVMyb3VBWnFrR1JjMDU5emk2TVdFVzlkbWtPdFIxckd4eGVBc2xudTRyVi90SGU4ZU44TGJRRDFTZWtpVHY4bU9FbFNHekIzNDVRSnh6UjREd3ZSR2ovMGNOVDNpbW9EMVdhVWl2bkFTdlVCSFFJaXRXMVRmZmhUTlMiLCJtYWMiOiJlMTcwMGE2NTUwMmIzMWVmMmJhODlkZWFjNTBlODEzNzI3MmE2MGIxMDIwYmU5ZjdiNmVhMWZmMDFlMDRhMjYzIiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:16:55 GMT; Max-Age=7200; path=/; samesite=lax, laravel_session=eyJpdiI6IkhNdCttNkVhdldHVlZSSWpJd0ZaUWc9PSIsInZhbHVlIjoiNGdUajRFamlBZjkvRnpQeG5jbUFIQmVjVnQ1Um1wOU9Yb0R5YzlCNit3M2o0NlpBMjNhTlFOcWJ2SDB1SWJ2UVhBZkFnT2pZU2hYamZucjhxemFVRWhad0ZIVkN4SWlZbk9ESjZQSlNSQWZNbkdMRjg4cHQvUXlDVHQ1WVZ6SmwiLCJtYWMiOiIzYTNlYmQ3ZmFmYjgyZmE5ZGY2OGNkMWI3M2Y4ODQ1ZWY4NzExYjk3ZTdkNGJjMDU1MDQ1OTZiY2ZiNTk2MjBmIiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:16:55 GMT; Max-Age=7200; path=/; httponly; samesite=lax, x-clockwork=%7B%22requestId%22%3A%221682500615-0036-983687033%22%2C%22version%22%3A%225.1.12%22%2C%22path%22%3A%22%5C%2F__clockwork%5C%2F%22%2C%22webPath%22%3A%22%5C%2Fclockwork%5C%2Fapp%22%2C%22token%22%3A%22e73ab15d%22%2C%22metrics%22%3Atrue%2C%22toolbar%22%3Atrue%7D; expires=Wed, 26-Apr-2023 09:17:55 GMT; Max-Age=60; path=/; samesite=lax'} 
+ body=None 
+ </msg>
+<msg timestamp="20230426 16:16:55.229" level="INFO">${response2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230426 16:16:52.719" endtime="20230426 16:16:55.229"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code2}</var>
+<arg>${response2.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:55.229" level="INFO">${status_code2} = 200</msg>
+<status status="PASS" starttime="20230426 16:16:55.229" endtime="20230426 16:16:55.229"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code2}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230426 16:16:55.229" endtime="20230426 16:16:55.229"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:16:56.244" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:55.234" endtime="20230426 16:16:56.244"/>
+</kw>
+<status status="PASS" starttime="20230426 16:16:21.733" endtime="20230426 16:16:56.244"/>
+</iter>
+<iter>
+<var name="${infinityLoop}">1</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230426 16:16:56.244" level="INFO">Creating Session using : alias=myssion, url=http://localhost:8000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230426 16:16:56.244" endtime="20230426 16:16:56.244"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>${child_url}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230426 16:16:56.244" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:16:58.674" level="INFO">GET Request : url=http://localhost:8000/robot/api/pembelian/show 
+ path_url=/robot/api/pembelian/show 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230426 16:16:58.674" level="INFO">GET Response : url=http://localhost:8000/robot/api/pembelian/show 
+ status=200, reason=OK 
+ headers={'Host': 'localhost:8000', 'Date': 'Wed, 26 Apr 2023 09:16:58 GMT, Wed, 26 Apr 2023 09:16:58 GMT', 'Connection': 'close', 'X-Powered-By': 'PHP/8.0.11', 'Cache-Control': 'no-cache, private', 'Content-Type': 'application/json', 'X-Clockwork-Id': '1682500618-4601-254129377', 'X-Clockwork-Version': '5.1.12', 'Server-Timing': 'app; dur=355.42798042297; desc="Application", db; dur=31.1; desc="Database", timeline-event-0; dur=127.05302238464; desc="Controller"', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6ImFPelg2cHpyYzZDUU1pekgwVTZEZnc9PSIsInZhbHVlIjoibXZLbE9vek9wcW5WamIzRjhrZkRCU05VM0tMTjA1ZEt3NUxVWWpxTDVkQVdFNXhYck8zRFc2cmpLVy9YcitsQ1NMK25Wb1ZsUGtYTFRkSmdvN2NaNWJ0TW0wMG9WQ2xqTzg0K0I4UkRJbUdxMXVka0drZzV3OXhUK0ZrcXdYRnQiLCJtYWMiOiIwNWU1NjYwOTlkYzlkZDUzNmUyYWQ0Mzc4YmRmOTU3MTFkZmQ0M2EzZjRkNDEwOTE3MGI0YTg1N2FmZTZkOTUxIiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:16:58 GMT; Max-Age=7200; path=/; samesite=lax, laravel_session=eyJpdiI6IlV6ODg3cjQzbjJBNVZHY01RNWgyUVE9PSIsInZhbHVlIjoicW43U2J0MGZLZzVjZE5CbHJOUTRJYnp6SGh1VXdOYkI3YTRjMFpEeFlYZmp2U3BDMUVKSkcvQVZIaEphWU44OWFHd3ZoaHlEWE01U053QUwyNk9lK0RLTkFVRkZVL2g3a25SVXQ5M0c5MTJOdzU4YVU1QlFRZUlOdWlCOFdPUEIiLCJtYWMiOiIyNTQ5MjQ1MmZhMmMyYTEwNjdlYTU4ZDhkNTQwNjI3YzU2MzM3YzYyZDBmODAzNWQxODVlYTZkODJjN2JlMTViIiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:16:58 GMT; Max-Age=7200; path=/; httponly; samesite=lax'} 
+ body={"Tanggal":"10-04-2023","Termin":"Kasir","Cabang":"Bekasi","idRobotPembelian":36,"Data":[{"idBeeCloud":"H001078","namaItem":"Chili sachet","qty":480,"total":137000,"satuan":"pcs","hargaSatuan":285.4166666666667,"gudang":"Gudang"},{"idBeeCloud":"H001105","namaItem":"Tomat sachet","qty":480,"total":110000,"satuan":"pcs","hargaSatuan":229.16666666666666,"gudang":"Gudang"}]} 
+ </msg>
+<msg timestamp="20230426 16:16:58.674" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230426 16:16:56.244" endtime="20230426 16:16:58.674"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:58.679" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20230426 16:16:58.679" endtime="20230426 16:16:58.679"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230426 16:16:58.679" endtime="20230426 16:16:58.679"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${contentType}</var>
+<arg>${response.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230426 16:16:58.684" level="INFO">${contentType} = application/json</msg>
+<status status="PASS" starttime="20230426 16:16:58.679" endtime="20230426 16:16:58.684"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${contentType}</arg>
+<arg>application/json</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230426 16:16:58.684" endtime="20230426 16:16:58.684"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${contentString}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:58.684" level="INFO">${contentString} = {"Tanggal":"10-04-2023","Termin":"Kasir","Cabang":"Bekasi","idRobotPembelian":36,"Data":[{"idBeeCloud":"H001078","namaItem":"Chili sachet","qty":480,"total":137000,"satuan":"pcs","hargaSatuan":285.416...</msg>
+<status status="PASS" starttime="20230426 16:16:58.684" endtime="20230426 16:16:58.684"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${contentData}</var>
+<arg>json.loads($contentString)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230426 16:16:58.684" level="INFO">${contentData} = {'Tanggal': '10-04-2023', 'Termin': 'Kasir', 'Cabang': 'Bekasi', 'idRobotPembelian': 36, 'Data': [{'idBeeCloud': 'H001078', 'namaItem': 'Chili sachet', 'qty': 480, 'total': 137000, 'satuan': 'pcs', 'h...</msg>
+<status status="PASS" starttime="20230426 16:16:58.684" endtime="20230426 16:16:58.684"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${Tanggal}</var>
+<arg>${contentData['Tanggal']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:58.689" level="INFO">${Tanggal} = 10-04-2023</msg>
+<status status="PASS" starttime="20230426 16:16:58.684" endtime="20230426 16:16:58.689"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${Termin}</var>
+<arg>${contentData['Termin']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:58.689" level="INFO">${Termin} = Kasir</msg>
+<status status="PASS" starttime="20230426 16:16:58.689" endtime="20230426 16:16:58.689"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${Cabang}</var>
+<arg>${contentData['Cabang']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:58.689" level="INFO">${Cabang} = Bekasi</msg>
+<status status="PASS" starttime="20230426 16:16:58.689" endtime="20230426 16:16:58.689"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${idRobotPembelian}</var>
+<arg>${contentData['idRobotPembelian']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:16:58.694" level="INFO">${idRobotPembelian} = 36</msg>
+<status status="PASS" starttime="20230426 16:16:58.689" endtime="20230426 16:16:58.694"/>
+</kw>
+<kw name="Copy List" library="Collections">
+<var>@{DataPembelian}</var>
+<arg>${contentData['Data']}</arg>
+<arg>deepcopy=True</arg>
+<doc>Returns a copy of the given list.</doc>
+<msg timestamp="20230426 16:16:58.694" level="INFO">@{DataPembelian} = [ {'idBeeCloud': 'H001078', 'namaItem': 'Chili sachet', 'qty': 480, 'total': 137000, 'satuan': 'pcs', 'hargaSatuan': 285.4166666666667, 'gudang': 'Gudang'} | {'idBeeCloud': 'H001105', 'namaItem': 'Tom...</msg>
+<status status="PASS" starttime="20230426 16:16:58.694" endtime="20230426 16:16:58.694"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${countPembelian}</var>
+<arg>${DataPembelian}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230426 16:16:58.694" level="INFO">Length is 2</msg>
+<msg timestamp="20230426 16:16:58.694" level="INFO">${countPembelian} = 2</msg>
+<status status="PASS" starttime="20230426 16:16:58.694" endtime="20230426 16:16:58.694"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${countPembelian} == 0</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20230426 16:16:58.694" endtime="20230426 16:16:58.694"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="trxdate-id"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:58.694" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to xpath://*[@id="trxdate-id"] element.</msg>
+<msg timestamp="20230426 16:16:59.028" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230426 16:16:59.028" level="INFO">Sending key a</msg>
+<msg timestamp="20230426 16:16:59.028" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20230426 16:16:59.028" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230426 16:16:59.028" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230426 16:16:58.694" endtime="20230426 16:16:59.080"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="trxdate-id"]</arg>
+<arg>${Tanggal}[0:10]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:16:59.082" level="INFO">Typing text '10-04-2023' into text field 'xpath://*[@id="trxdate-id"]'.</msg>
+<status status="PASS" starttime="20230426 16:16:59.080" endtime="20230426 16:16:59.283"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="trxdate-id"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:16:59.284" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="trxdate-id"] element.</msg>
+<msg timestamp="20230426 16:16:59.614" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:16:59.614" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:16:59.284" endtime="20230426 16:16:59.689"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:00.705" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:16:59.689" endtime="20230426 16:17:00.705"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_cash_id-id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:00.705" level="INFO">Clicking element 'xpath://*[@id="s2id_cash_id-id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:17:00.705" endtime="20230426 16:17:00.854"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen2_search"]</arg>
+<arg>${Termin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:00.854" level="INFO">Typing text 'Kasir' into text field 'xpath://*[@id="s2id_autogen2_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:00.854" endtime="20230426 16:17:01.064"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen2_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:01.065" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen2_search"] element.</msg>
+<msg timestamp="20230426 16:17:01.374" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:17:01.374" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:17:01.065" endtime="20230426 16:17:01.409"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:02.421" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:01.409" endtime="20230426 16:17:02.421"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:02.421" level="INFO">${loopCount} = 0</msg>
+<status status="PASS" starttime="20230426 16:17:02.421" endtime="20230426 16:17:02.421"/>
+</kw>
+<for flavor="IN">
+<var>${DataLoop}</var>
+<value>@{DataPembelian}</value>
+<iter>
+<var name="${DataLoop}">{'idBeeCloud': 'H001078', 'namaItem': 'Chili sachet', 'qty': 480, 'total': 137000, 'satuan': 'pcs', 'hargaSatuan': 285.4166666666667, 'gudang': 'Gudang'}</var>
+<kw name="Convert To String" library="BuiltIn">
+<var>${idItemLoop}</var>
+<arg>${DataLoop['idBeeCloud']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:17:02.421" level="INFO">${idItemLoop} = H001078</msg>
+<status status="PASS" starttime="20230426 16:17:02.421" endtime="20230426 16:17:02.421"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:17:02.421" level="INFO">Executing JavaScript:
+window.scrollTo(0,document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:17:02.421" endtime="20230426 16:17:02.437"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:03.441" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:02.437" endtime="20230426 16:17:03.441"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_item_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:03.441" level="INFO">Clicking element 'xpath://*[@id="s2id_item_id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:17:03.441" endtime="20230426 16:17:03.541"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen5_search"]</arg>
+<arg>${idItemLoop}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:03.544" level="INFO">Typing text 'H001078' into text field 'xpath://*[@id="s2id_autogen5_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:03.541" endtime="20230426 16:17:03.732"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:05.735" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:17:03.732" endtime="20230426 16:17:05.735"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen5_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:05.735" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen5_search"] element.</msg>
+<msg timestamp="20230426 16:17:06.036" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:17:06.036" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:17:05.735" endtime="20230426 16:17:06.336"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:07.351" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:06.336" endtime="20230426 16:17:07.351"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${loopCount+1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:07.355" level="INFO">${loopCount} = 1</msg>
+<status status="PASS" starttime="20230426 16:17:07.351" endtime="20230426 16:17:07.355"/>
+</kw>
+<status status="PASS" starttime="20230426 16:17:02.421" endtime="20230426 16:17:07.356"/>
+</iter>
+<iter>
+<var name="${DataLoop}">{'idBeeCloud': 'H001105', 'namaItem': 'Tomat sachet', 'qty': 480, 'total': 110000, 'satuan': 'pcs', 'hargaSatuan': 229.16666666666666, 'gudang': 'Gudang'}</var>
+<kw name="Convert To String" library="BuiltIn">
+<var>${idItemLoop}</var>
+<arg>${DataLoop['idBeeCloud']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:17:07.360" level="INFO">${idItemLoop} = H001105</msg>
+<status status="PASS" starttime="20230426 16:17:07.357" endtime="20230426 16:17:07.360"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:17:07.363" level="INFO">Executing JavaScript:
+window.scrollTo(0,document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:17:07.360" endtime="20230426 16:17:07.366"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:08.366" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:07.366" endtime="20230426 16:17:08.366"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_item_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:08.366" level="INFO">Clicking element 'xpath://*[@id="s2id_item_id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:17:08.366" endtime="20230426 16:17:08.456"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen5_search"]</arg>
+<arg>${idItemLoop}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:08.458" level="INFO">Typing text 'H001105' into text field 'xpath://*[@id="s2id_autogen5_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:08.456" endtime="20230426 16:17:08.565"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:10.574" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:17:08.565" endtime="20230426 16:17:10.574"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen5_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:10.574" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen5_search"] element.</msg>
+<msg timestamp="20230426 16:17:10.872" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:17:10.872" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:17:10.574" endtime="20230426 16:17:11.254"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:12.264" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:11.254" endtime="20230426 16:17:12.264"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${loopCount+1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:12.266" level="INFO">${loopCount} = 2</msg>
+<status status="PASS" starttime="20230426 16:17:12.265" endtime="20230426 16:17:12.266"/>
+</kw>
+<status status="PASS" starttime="20230426 16:17:07.356" endtime="20230426 16:17:12.266"/>
+</iter>
+<status status="PASS" starttime="20230426 16:17:02.421" endtime="20230426 16:17:12.266"/>
+</for>
+<if>
+<branch type="IF" condition="${loopCount} &gt; 1">
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:12.267" level="INFO">${loopCount} = 0</msg>
+<status status="PASS" starttime="20230426 16:17:12.267" endtime="20230426 16:17:12.267"/>
+</kw>
+<for flavor="IN">
+<var>${DataLoop}</var>
+<value>@{DataPembelian}</value>
+<iter>
+<var name="${DataLoop}">{'idBeeCloud': 'H001078', 'namaItem': 'Chili sachet', 'qty': 480, 'total': 137000, 'satuan': 'pcs', 'hargaSatuan': 285.4166666666667, 'gudang': 'Gudang'}</var>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${loopCount+1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:12.269" level="INFO">${loopCount} = 1</msg>
+<status status="PASS" starttime="20230426 16:17:12.268" endtime="20230426 16:17:12.269"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newXPath}</var>
+<arg>${xpathTablePembelian}/tr[${loopCount}]/td[11]/a[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:12.269" level="INFO">${newXPath} = /html/body/div[3]/div[2]/div[1]/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div/table/tbody/tr[1]/td[11]/a[1]</msg>
+<status status="PASS" starttime="20230426 16:17:12.269" endtime="20230426 16:17:12.269"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight/3)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:17:12.270" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight/3)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:17:12.270" endtime="20230426 16:17:12.274"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:13.286" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:12.274" endtime="20230426 16:17:13.286"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath:${newXPath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:13.286" level="INFO">Clicking element 'xpath:/html/body/div[3]/div[2]/div[1]/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div/table/tbody/tr[1]/td[11]/a[1]'.</msg>
+<status status="PASS" starttime="20230426 16:17:13.286" endtime="20230426 16:17:13.374"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:15.384" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:17:13.374" endtime="20230426 16:17:15.384"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:15.384" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to xpath://*[@id="dlgpurcd_qty"] element.</msg>
+<msg timestamp="20230426 16:17:15.769" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230426 16:17:15.769" level="INFO">Sending key a</msg>
+<msg timestamp="20230426 16:17:15.769" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20230426 16:17:15.769" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230426 16:17:15.769" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230426 16:17:15.384" endtime="20230426 16:17:15.804"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:15.806" level="INFO">Typing text '480' into text field 'xpath://*[@id="dlgpurcd_qty"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:15.804" endtime="20230426 16:17:15.925"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:15.925" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to xpath://*[@id="dlgpurcd_listprice"] element.</msg>
+<msg timestamp="20230426 16:17:16.240" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230426 16:17:16.240" level="INFO">Sending key a</msg>
+<msg timestamp="20230426 16:17:16.240" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20230426 16:17:16.240" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230426 16:17:16.240" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230426 16:17:15.925" endtime="20230426 16:17:16.282"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>${DataLoop['hargaSatuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:16.285" level="INFO">Typing text '285.4166666666667' into text field 'xpath://*[@id="dlgpurcd_listprice"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:16.282" endtime="20230426 16:17:16.454"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_dlgpurcd_wh_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:16.455" level="INFO">Clicking element 'xpath://*[@id="s2id_dlgpurcd_wh_id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:17:16.454" endtime="20230426 16:17:16.570"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>${DataLoop['gudang']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:16.571" level="INFO">Typing text 'Gudang' into text field 'xpath://*[@id="s2id_autogen10_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:16.570" endtime="20230426 16:17:16.764"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:16.764" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen10_search"] element.</msg>
+<msg timestamp="20230426 16:17:17.056" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:17:17.056" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:17:16.764" endtime="20230426 16:17:17.100"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:17:17.100" level="INFO">Executing JavaScript:
+window.scrollTo(0,document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:17:17.100" endtime="20230426 16:17:17.100"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:18.102" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:17.100" endtime="20230426 16:17:18.102"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="btnAdd"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:18.102" level="INFO">Clicking element 'xpath://*[@id="btnAdd"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:18.102" endtime="20230426 16:17:18.251"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:20.259" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:17:18.251" endtime="20230426 16:17:20.259"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['namaItem']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:20.259" level="INFO">${newText} = Chili sachet</msg>
+<status status="PASS" starttime="20230426 16:17:20.259" endtime="20230426 16:17:20.259"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['qty']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230426 16:17:20.259" level="INFO">${newText} = 480</msg>
+<status status="PASS" starttime="20230426 16:17:20.259" endtime="20230426 16:17:20.259"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['satuan']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230426 16:17:20.259" level="INFO">${newText} = pcs</msg>
+<status status="PASS" starttime="20230426 16:17:20.259" endtime="20230426 16:17:20.259"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>Rp.</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230426 16:17:20.259" level="INFO">${newText} = Rp.</msg>
+<status status="PASS" starttime="20230426 16:17:20.259" endtime="20230426 16:17:20.259"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['total']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230426 16:17:20.259" level="INFO">${newText} = 137000</msg>
+<status status="PASS" starttime="20230426 16:17:20.259" endtime="20230426 16:17:20.259"/>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<var>${original_text}</var>
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230426 16:17:20.775" level="INFO">${original_text} = </msg>
+<status status="PASS" starttime="20230426 16:17:20.259" endtime="20230426 16:17:20.775"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${original_text} ${newText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:20.775" level="INFO">Typing text ' 137000' into text field 'xpath://*[@id="purc-note"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:20.775" endtime="20230426 16:17:20.941"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:20.941" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="purc-note"] element.</msg>
+<msg timestamp="20230426 16:17:21.255" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:17:21.255" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:17:20.941" endtime="20230426 16:17:21.272"/>
+</kw>
+<status status="PASS" starttime="20230426 16:17:12.268" endtime="20230426 16:17:21.272"/>
+</iter>
+<iter>
+<var name="${DataLoop}">{'idBeeCloud': 'H001105', 'namaItem': 'Tomat sachet', 'qty': 480, 'total': 110000, 'satuan': 'pcs', 'hargaSatuan': 229.16666666666666, 'gudang': 'Gudang'}</var>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${loopCount+1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:21.272" level="INFO">${loopCount} = 2</msg>
+<status status="PASS" starttime="20230426 16:17:21.272" endtime="20230426 16:17:21.272"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newXPath}</var>
+<arg>${xpathTablePembelian}/tr[${loopCount}]/td[11]/a[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:21.272" level="INFO">${newXPath} = /html/body/div[3]/div[2]/div[1]/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div/table/tbody/tr[2]/td[11]/a[1]</msg>
+<status status="PASS" starttime="20230426 16:17:21.272" endtime="20230426 16:17:21.272"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight/3)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:17:21.272" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight/3)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:17:21.272" endtime="20230426 16:17:21.286"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:22.301" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:21.287" endtime="20230426 16:17:22.301"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath:${newXPath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:22.301" level="INFO">Clicking element 'xpath:/html/body/div[3]/div[2]/div[1]/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div/table/tbody/tr[2]/td[11]/a[1]'.</msg>
+<status status="PASS" starttime="20230426 16:17:22.301" endtime="20230426 16:17:22.398"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:24.399" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:17:22.398" endtime="20230426 16:17:24.399"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:24.399" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to xpath://*[@id="dlgpurcd_qty"] element.</msg>
+<msg timestamp="20230426 16:17:24.751" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230426 16:17:24.751" level="INFO">Sending key a</msg>
+<msg timestamp="20230426 16:17:24.751" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20230426 16:17:24.751" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230426 16:17:24.751" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230426 16:17:24.399" endtime="20230426 16:17:24.787"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:24.789" level="INFO">Typing text '480' into text field 'xpath://*[@id="dlgpurcd_qty"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:24.787" endtime="20230426 16:17:24.874"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:24.874" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to xpath://*[@id="dlgpurcd_listprice"] element.</msg>
+<msg timestamp="20230426 16:17:25.191" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20230426 16:17:25.191" level="INFO">Sending key a</msg>
+<msg timestamp="20230426 16:17:25.191" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20230426 16:17:25.191" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20230426 16:17:25.191" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20230426 16:17:24.874" endtime="20230426 16:17:25.215"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>${DataLoop['hargaSatuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:25.231" level="INFO">Typing text '229.16666666666666' into text field 'xpath://*[@id="dlgpurcd_listprice"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:25.215" endtime="20230426 16:17:25.369"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_dlgpurcd_wh_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:25.381" level="INFO">Clicking element 'xpath://*[@id="s2id_dlgpurcd_wh_id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:17:25.380" endtime="20230426 16:17:25.455"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>${DataLoop['gudang']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:25.460" level="INFO">Typing text 'Gudang' into text field 'xpath://*[@id="s2id_autogen10_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:25.455" endtime="20230426 16:17:25.631"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:25.647" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen10_search"] element.</msg>
+<msg timestamp="20230426 16:17:25.949" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:17:25.949" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:17:25.631" endtime="20230426 16:17:26.004"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:17:26.004" level="INFO">Executing JavaScript:
+window.scrollTo(0,document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:17:26.004" endtime="20230426 16:17:26.014"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:27.018" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:26.014" endtime="20230426 16:17:27.018"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="btnAdd"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:27.018" level="INFO">Clicking element 'xpath://*[@id="btnAdd"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:27.018" endtime="20230426 16:17:27.146"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:29.158" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:17:27.148" endtime="20230426 16:17:29.158"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['namaItem']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230426 16:17:29.158" level="INFO">${newText} = Tomat sachet</msg>
+<status status="PASS" starttime="20230426 16:17:29.158" endtime="20230426 16:17:29.158"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['qty']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230426 16:17:29.158" level="INFO">${newText} = 480</msg>
+<status status="PASS" starttime="20230426 16:17:29.158" endtime="20230426 16:17:29.158"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['satuan']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230426 16:17:29.158" level="INFO">${newText} = pcs</msg>
+<status status="PASS" starttime="20230426 16:17:29.158" endtime="20230426 16:17:29.158"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>Rp.</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230426 16:17:29.158" level="INFO">${newText} = Rp.</msg>
+<status status="PASS" starttime="20230426 16:17:29.158" endtime="20230426 16:17:29.158"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['total']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230426 16:17:29.158" level="INFO">${newText} = 110000</msg>
+<status status="PASS" starttime="20230426 16:17:29.158" endtime="20230426 16:17:29.158"/>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<var>${original_text}</var>
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230426 16:17:29.188" level="INFO">${original_text} =  137000
+</msg>
+<status status="PASS" starttime="20230426 16:17:29.158" endtime="20230426 16:17:29.188"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${original_text} ${newText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:29.188" level="INFO">Typing text ' 137000
+ 110000' into text field 'xpath://*[@id="purc-note"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:29.188" endtime="20230426 16:17:29.355"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:29.355" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="purc-note"] element.</msg>
+<msg timestamp="20230426 16:17:29.670" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:17:29.670" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:17:29.355" endtime="20230426 16:17:29.691"/>
+</kw>
+<status status="PASS" starttime="20230426 16:17:21.272" endtime="20230426 16:17:29.691"/>
+</iter>
+<status status="PASS" starttime="20230426 16:17:12.267" endtime="20230426 16:17:29.691"/>
+</for>
+<status status="PASS" starttime="20230426 16:17:12.266" endtime="20230426 16:17:29.691"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" library="BuiltIn">
+<var>${newXPath}</var>
+<arg>${xpathTablePembelian}/tr/td[11]/a[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.691" endtime="20230426 16:17:29.691"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight/3)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.691" endtime="20230426 16:17:29.691"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.691" endtime="20230426 16:17:29.691"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath:${newXPath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.691" endtime="20230426 16:17:29.691"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.691" endtime="20230426 16:17:29.691"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.691" endtime="20230426 16:17:29.691"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.691" endtime="20230426 16:17:29.691"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.697" endtime="20230426 16:17:29.697"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>${DataLoop['hargaSatuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.697" endtime="20230426 16:17:29.697"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_dlgpurcd_wh_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.697" endtime="20230426 16:17:29.697"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>${DataLoop['gudang']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.698" endtime="20230426 16:17:29.698"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.698" endtime="20230426 16:17:29.698"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.698" endtime="20230426 16:17:29.698"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.698" endtime="20230426 16:17:29.698"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="btnAdd"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.698" endtime="20230426 16:17:29.698"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.698" endtime="20230426 16:17:29.699"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['namaItem']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.699" endtime="20230426 16:17:29.699"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>TAB</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.699" endtime="20230426 16:17:29.699"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.699" endtime="20230426 16:17:29.699"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>SPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.699" endtime="20230426 16:17:29.699"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['satuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.699" endtime="20230426 16:17:29.700"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>TAB</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.700" endtime="20230426 16:17:29.700"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>Rp</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.700" endtime="20230426 16:17:29.700"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>SPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.700" endtime="20230426 16:17:29.700"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['total']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.700" endtime="20230426 16:17:29.700"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:29.700" endtime="20230426 16:17:29.700"/>
+</kw>
+<status status="NOT RUN" starttime="20230426 16:17:29.691" endtime="20230426 16:17:29.700"/>
+</branch>
+<status status="PASS" starttime="20230426 16:17:12.266" endtime="20230426 16:17:29.700"/>
+</if>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_purc-branch_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:29.701" level="INFO">Clicking element 'xpath://*[@id="s2id_purc-branch_id"]/a'.</msg>
+<status status="PASS" starttime="20230426 16:17:29.701" endtime="20230426 16:17:29.815"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen6_search"]</arg>
+<arg>${Cabang}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:29.817" level="INFO">Typing text 'Bekasi' into text field 'xpath://*[@id="s2id_autogen6_search"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:29.816" endtime="20230426 16:17:30.031"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen6_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230426 16:17:30.031" level="INFO">Sending key(s) ('ENTER',) to xpath://*[@id="s2id_autogen6_search"] element.</msg>
+<msg timestamp="20230426 16:17:30.315" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230426 16:17:30.315" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230426 16:17:30.031" endtime="20230426 16:17:30.400"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:31.400" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:30.400" endtime="20230426 16:17:31.400"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:17:31.400" level="INFO">Executing JavaScript:
+window.scrollTo(0,document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:17:31.400" endtime="20230426 16:17:31.400"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:32.406" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:31.400" endtime="20230426 16:17:32.406"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="grpbtn-tour-purc"]/div/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:32.406" level="INFO">Clicking element 'xpath://*[@id="grpbtn-tour-purc"]/div/div/button'.</msg>
+<status status="PASS" starttime="20230426 16:17:32.406" endtime="20230426 16:17:32.574"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:34.576" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:17:32.574" endtime="20230426 16:17:34.576"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,-document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230426 16:17:34.579" level="INFO">Executing JavaScript:
+window.scrollTo(0,-document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230426 16:17:34.577" endtime="20230426 16:17:34.607"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:35.623" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:34.608" endtime="20230426 16:17:35.623"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="new_button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:35.625" level="INFO">Clicking element 'xpath://*[@id="new_button"]'.</msg>
+<status status="PASS" starttime="20230426 16:17:35.624" endtime="20230426 16:17:38.041"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:40.043" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230426 16:17:38.041" endtime="20230426 16:17:40.043"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion2</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230426 16:17:40.043" level="INFO">Creating Session using : alias=myssion2, url=http://localhost:8000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230426 16:17:40.043" endtime="20230426 16:17:40.043"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response2}</var>
+<arg>myssion2</arg>
+<arg>/robot/api/pembelian/done/${idRobotPembelian}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230426 16:17:40.043" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:17:42.502" level="INFO">GET Request : url=http://localhost:8000/robot/api/pembelian/done/36 
+ path_url=/robot/api/pembelian/done/36 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230426 16:17:42.502" level="INFO">GET Response : url=http://localhost:8000/robot/api/pembelian/done/36 
+ status=200, reason=OK 
+ headers={'Host': 'localhost:8000', 'Date': 'Wed, 26 Apr 2023 09:17:42 GMT, Wed, 26 Apr 2023 09:17:42 GMT', 'Connection': 'close', 'X-Powered-By': 'PHP/8.0.11', 'Content-Type': 'text/html; charset=UTF-8', 'Cache-Control': 'no-cache, private', 'X-Clockwork-Id': '1682500662-2837-1583804306', 'X-Clockwork-Version': '5.1.12', 'Server-Timing': 'app; dur=411.94486618042; desc="Application", db; dur=11.02; desc="Database", timeline-event-0; dur=105.84712028503; desc="Controller"', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6IkJjbS9pclI3ZFhwME1McVZRbzIyS2c9PSIsInZhbHVlIjoicUNIK2E3QkJQTCtXeFdZMG1iZ3ppVk1mL1lsUmljS1diNUhIZmpod2tzU0ZwZndVZ3ZOMmJMa1B0c2o5Z0Y5UDM2ejkrVDNtNjVpMEIrS0V6YmdJUHlKZElBZmt6Y0pPUmZmWXRsWG1IclpDRWpGNFB4UEhxcU1xb1R5U0YzL00iLCJtYWMiOiJkNTM5MjA0ODZlZDk4NTM3N2UwNGMxZTk2Y2Q3NTkxZDNhYWVkYmVhYzBmN2JjMmY1MmUwZDVhYzBkZDMzOGVkIiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:17:42 GMT; Max-Age=7200; path=/; samesite=lax, laravel_session=eyJpdiI6Ijc3VGh3WUVua0IxNGJYZjZvSFpSU1E9PSIsInZhbHVlIjoiRHVYVTNBaUxxVVZIZzNibGg4VVVhaFZpL2x0R2Rib0VrUjNPcWExSlRyMmN5VGNMYlk1RzA1UGplV3pjSHUvcGFsT1JYZWJxMDRkeTNpaVoyc3N1QlNyVzl6TFFHbTV6b05IMWJnWDVFdldRSlBxMlVGdmkyMHJ6cTk0cXZWTDMiLCJtYWMiOiJiODgzYjQ2MzI5MmRmNzJhMzBhNzMxZGQ3Yjg3ZWJiMzI4YmNlNGRmZWE5ZDg1YjViNTZhN2M3YmQzNzgwNjY3IiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:17:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax, x-clockwork=%7B%22requestId%22%3A%221682500662-2837-1583804306%22%2C%22version%22%3A%225.1.12%22%2C%22path%22%3A%22%5C%2F__clockwork%5C%2F%22%2C%22webPath%22%3A%22%5C%2Fclockwork%5C%2Fapp%22%2C%22token%22%3A%22e9a3a211%22%2C%22metrics%22%3Atrue%2C%22toolbar%22%3Atrue%7D; expires=Wed, 26-Apr-2023 09:18:42 GMT; Max-Age=60; path=/; samesite=lax'} 
+ body=None 
+ </msg>
+<msg timestamp="20230426 16:17:42.502" level="INFO">${response2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230426 16:17:40.043" endtime="20230426 16:17:42.502"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code2}</var>
+<arg>${response2.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:17:42.502" level="INFO">${status_code2} = 200</msg>
+<status status="PASS" starttime="20230426 16:17:42.502" endtime="20230426 16:17:42.502"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code2}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230426 16:17:42.502" endtime="20230426 16:17:42.502"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:43.509" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:42.502" endtime="20230426 16:17:43.509"/>
+</kw>
+<status status="PASS" starttime="20230426 16:16:56.244" endtime="20230426 16:17:43.509"/>
+</iter>
+<iter>
+<var name="${infinityLoop}">2</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230426 16:17:43.509" level="INFO">Creating Session using : alias=myssion, url=http://localhost:8000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230426 16:17:43.509" endtime="20230426 16:17:43.509"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>${child_url}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230426 16:17:43.509" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:17:46.308" level="INFO">GET Request : url=http://localhost:8000/robot/api/pembelian/show 
+ path_url=/robot/api/pembelian/show 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230426 16:17:46.308" level="INFO">GET Response : url=http://localhost:8000/robot/api/pembelian/show 
+ status=500, reason=Internal Server Error 
+ headers={'Host': 'localhost:8000', 'Date': 'Wed, 26 Apr 2023 09:17:46 GMT, Wed, 26 Apr 2023 09:17:46 GMT', 'Connection': 'close', 'X-Powered-By': 'PHP/8.0.11', 'Cache-Control': 'no-cache, private', 'Content-Type': 'text/html; charset=UTF-8', 'X-Clockwork-Id': '1682500665-6784-1560952339', 'X-Clockwork-Version': '5.1.12', 'Server-Timing': 'app; dur=769.51098442078; desc="Application", db; dur=4.03; desc="Database", timeline-event-0; dur=539.97397422791; desc="Controller"', 'Set-Cookie': 'XSRF-TOKEN=eyJpdiI6ImVUUUpoTkozRU9HdVNBbFVaMllLSkE9PSIsInZhbHVlIjoia2hWNDlyRFBBc1N4SHVvelAvUnBDeE94enJJQkNnSlB3WDIvOVlTM0NjTkcwMVBHdjBvUWhvbXRhN253TXZzU2tNRUdsVE4vbTltbHNhcnBxWjJSMnh0YzNHSmd4UGZzejZRc3ZqSHV0NEJCN21odzV4cVhGSzMzekszVFN2V0oiLCJtYWMiOiI5YWJlY2QwZDJiMWQwODE2MWQ2OTdjZDNhOTlkMzY0NmE2Y2E2OGY5NTFiMjA4M2E1ZjE4MDRhZDc3MDU2ZDg2IiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:17:46 GMT; Max-Age=7200; path=/; samesite=lax, laravel_session=eyJpdiI6IlRGNS9KeDNxREorTFdKUXpEOE1rZVE9PSIsInZhbHVlIjoiUldOWmhsVXZRbWxCMVdIdjZqNWRoRXdpZkpQSm5lSE80UnpnOVB0RS9CQ0dyVHRRUks1NGV5M1JQbndEUnhkdnZYdXZ3YWtQMTJRMnhzb0czREc5eXloelpvT09DckdwZFYxdzY2NWxQclR3QWg0OWtzUVYxZXZoL1cxU1ZVRlgiLCJtYWMiOiIxNDRhNGFlM2Q2ZDA3NDMwNDhlYzVkNDIwNzRkNjkyYzZmZTNiMDE3ZGZlMjIyNjU5M2E0YmU2NDk3YmUwZjU0IiwidGFnIjoiIn0%3D; expires=Wed, 26-Apr-2023 11:17:46 GMT; Max-Age=7200; path=/; httponly; samesite=lax, x-clockwork=%7B%22requestId%22%3A%221682500665-6784-1560952339%22%2C%22version%22%3A%225.1.12%22%2C%22path%22%3A%22%5C%2F__clockwork%5C%2F%22%2C%22webPath%22%3A%22%5C%2Fclockwork%5C%2Fapp%22%2C%22token%22%3A%2241a98d8e%22%2C%22metrics%22%3Atrue%2C%22toolbar%22%3Atrue%7D; expires=Wed, 26-Apr-2023 09:18:46 GMT; Max-Age=60; path=/; samesite=lax'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en" class="auto"&gt;
+&lt;!--
+ErrorException: Attempt to read property &amp;quot;pattyCashHarians&amp;quot; on null in file C:\xampp\htdocs\lazizaa\app\Http\Controllers\robotController.php on line 16
+
+#0 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions-&amp;gt;handleError(2, 'Attempt to read...', 'C:\\xampp\\htdocs...', 16)
+#1 C:\xampp\htdocs\lazizaa\app\Http\Controllers\robotController.php(16): Illuminate\Foundation\Bootstrap\HandleExceptions-&amp;gt;Illuminate\Foundation\Bootstrap\{closure}(2, 'Attempt to read...', 'C:\\xampp\\htdocs...', 16)
+#2 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\robotController-&amp;gt;showRobotPembelian()
+#3 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller-&amp;gt;callAction('showRobotPembel...', Array)
+#4 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher-&amp;gt;dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\robotController), 'showRobotPembel...')
+#5 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\Route.php(204): Illuminate\Routing\Route-&amp;gt;runController()
+#6 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\Router.php(725): Illuminate\Routing\Route-&amp;gt;run()
+#7 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Routing\Router-&amp;gt;Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#8 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#9 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Middleware\SubstituteBindings-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#10 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#12 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\View\Middleware\ShareErrorsFromSession-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#14 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession-&amp;gt;handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#16 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Session\Middleware\StartSession-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Cookie\Middleware\EncryptCookies-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\Router.php(726): Illuminate\Pipeline\Pipeline-&amp;gt;then(Object(Closure))
+#23 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\Router.php(703): Illuminate\Routing\Router-&amp;gt;runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#24 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\Router.php(667): Illuminate\Routing\Router-&amp;gt;runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#25 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Routing\Router.php(656): Illuminate\Routing\Router-&amp;gt;dispatchToRoute(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(190): Illuminate\Routing\Router-&amp;gt;dispatch(Object(Illuminate\Http\Request))
+#27 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(141): Illuminate\Foundation\Http\Kernel-&amp;gt;Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#30 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#31 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#33 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Middleware\TrimStrings-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#34 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ValidatePostSize-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(86): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#38 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Http\Middleware\HandleCors-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#41 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Http\Middleware\TrustProxies-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#42 C:\xampp\htdocs\lazizaa\vendor\itsgoingd\clockwork\Clockwork\Support\Laravel\ClockworkMiddleware.php(24): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#43 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Clockwork\Support\Laravel\ClockworkMiddleware-&amp;gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#44 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(116): Illuminate\Pipeline\Pipeline-&amp;gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#45 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(165): Illuminate\Pipeline\Pipeline-&amp;gt;then(Object(Closure))
+#46 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(134): Illuminate\Foundation\Http\Kernel-&amp;gt;sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#47 C:\xampp\htdocs\lazizaa\public\index.php(52): Illuminate\Foundation\Http\Kernel-&amp;gt;handle(Object(Illuminate\Http\Request))
+#48 C:\xampp\htdocs\lazizaa\vendor\laravel\framework\src\Illuminate\Foundation\resources\server.php(16): require_once('C:\\xa... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20230426 16:17:46.308" level="INFO">${response} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20230426 16:17:43.509" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230426 16:17:46.308" level="INFO">${status_code} = 500</msg>
+<status status="PASS" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230426 16:17:46.308" level="FAIL">500 != 200</msg>
+<status status="FAIL" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${contentType}</var>
+<arg>${response.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${contentType}</arg>
+<arg>application/json</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${contentString}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${contentData}</var>
+<arg>json.loads($contentString)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${Tanggal}</var>
+<arg>${contentData['Tanggal']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${Termin}</var>
+<arg>${contentData['Termin']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${Cabang}</var>
+<arg>${contentData['Cabang']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${idRobotPembelian}</var>
+<arg>${contentData['idRobotPembelian']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Copy List" library="Collections">
+<var>@{DataPembelian}</var>
+<arg>${contentData['Data']}</arg>
+<arg>deepcopy=True</arg>
+<doc>Returns a copy of the given list.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${countPembelian}</var>
+<arg>${DataPembelian}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${countPembelian} == 0</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="trxdate-id"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="trxdate-id"]</arg>
+<arg>${Tanggal}[0:10]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="trxdate-id"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_cash_id-id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen2_search"]</arg>
+<arg>${Termin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen2_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.308"/>
+</kw>
+<for flavor="IN">
+<var>${DataLoop}</var>
+<value>@{DataPembelian}</value>
+<iter>
+<var name="${DataLoop}"/>
+<kw name="Convert To String" library="BuiltIn">
+<var>${idItemLoop}</var>
+<arg>${DataLoop['idBeeCloud']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_item_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen5_search"]</arg>
+<arg>${idItemLoop}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen5_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${loopCount+1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.323"/>
+</iter>
+<status status="NOT RUN" starttime="20230426 16:17:46.308" endtime="20230426 16:17:46.323"/>
+</for>
+<if>
+<branch type="IF" condition="${loopCount} &gt; 1">
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<for flavor="IN">
+<var>${DataLoop}</var>
+<value>@{DataPembelian}</value>
+<iter>
+<var name="${DataLoop}"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loopCount}</var>
+<arg>${loopCount+1}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newXPath}</var>
+<arg>${xpathTablePembelian}/tr[${loopCount}]/td[11]/a[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight/3)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath:${newXPath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>${DataLoop['hargaSatuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_dlgpurcd_wh_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>${DataLoop['gudang']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="btnAdd"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['namaItem']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['qty']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['satuan']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>Rp.</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${newText}</var>
+<arg>${DataLoop['total']}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<var>${original_text}</var>
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${original_text} ${newText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</iter>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</for>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" library="BuiltIn">
+<var>${newXPath}</var>
+<arg>${xpathTablePembelian}/tr/td[11]/a[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight/3)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath:${newXPath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_qty"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="dlgpurcd_listprice"]</arg>
+<arg>${DataLoop['hargaSatuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_dlgpurcd_wh_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>${DataLoop['gudang']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen10_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="btnAdd"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['namaItem']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>TAB</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['qty']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>SPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['satuan']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>TAB</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>Rp</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>SPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>${DataLoop['total']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="purc-note"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</branch>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</if>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_purc-branch_id"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen6_search"]</arg>
+<arg>${Cabang}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath://*[@id="s2id_autogen6_search"]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="grpbtn-tour-purc"]/div/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0,-document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="new_button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion2</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.323"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response2}</var>
+<arg>myssion2</arg>
+<arg>/robot/api/pembelian/done/${idRobotPembelian}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230426 16:17:46.323" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<status status="NOT RUN" starttime="20230426 16:17:46.323" endtime="20230426 16:17:46.339"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code2}</var>
+<arg>${response2.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.340" endtime="20230426 16:17:46.340"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code2}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.340" endtime="20230426 16:17:46.340"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230426 16:17:46.341" endtime="20230426 16:17:46.341"/>
+</kw>
+<status status="FAIL" starttime="20230426 16:17:43.509" endtime="20230426 16:17:46.341"/>
+</iter>
+<status status="FAIL" starttime="20230426 16:16:21.732" endtime="20230426 16:17:46.341"/>
+</for>
+<kw name="End" library="Reserved">
+<status status="NOT RUN" starttime="20230426 16:17:46.342" endtime="20230426 16:17:46.342"/>
+</kw>
+<status status="FAIL" starttime="20230426 16:16:21.731" endtime="20230426 16:17:46.343">500 != 200</status>
+</test>
+<test id="s1-t4" name="Logout BeeCloud" line="205">
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="dropdownuser"]/div/div[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:46.349" level="INFO">Clicking element 'xpath://*[@id="dropdownuser"]/div/div[1]'.</msg>
+<status status="PASS" starttime="20230426 16:17:46.348" endtime="20230426 16:17:46.461"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:47.470" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230426 16:17:46.462" endtime="20230426 16:17:47.470"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="dropdownuser"]/li[7]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230426 16:17:47.472" level="INFO">Clicking element 'xpath://*[@id="dropdownuser"]/li[7]'.</msg>
+<status status="PASS" starttime="20230426 16:17:47.471" endtime="20230426 16:17:48.709"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230426 16:17:51.730" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230426 16:17:48.719" endtime="20230426 16:17:51.730"/>
+</kw>
+<status status="PASS" starttime="20230426 16:17:46.347" endtime="20230426 16:17:51.730"/>
+</test>
+<status status="FAIL" starttime="20230426 16:15:51.218" endtime="20230426 16:17:51.735"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="1" skip="0" id="s1" name="Pembelian">Pembelian</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230426 16:16:21.735" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:16:52.719" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:16:56.244" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:17:40.043" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:17:43.509" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230426 16:17:46.323" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>
