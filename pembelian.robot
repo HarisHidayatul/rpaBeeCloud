@@ -4,8 +4,11 @@ Library    Selenium2Library
 Library    RequestsLibrary
 Library    Collections
 
+#inisialisasi variable
+Variables    init.py
+
 *** Variables ***
-${base_url}    http://localhost:8000
+# ${base_url}    http://localhost:8000
 ${child_url}    /robot/api/pembelian/show
 ${Tanggal}    00-00-00
 ${Termin}    kosong
@@ -20,8 +23,8 @@ Buka Browser Dan Lakukan Login
     Open Browser    https://app.beecloud.id/site/login    Edge
     Maximize Browser Window
 
-    input text    id:loginform-username    hidayatulloh.haris@gmail.com
-    input text    id:loginform-password    KNw8CeD0
+    input text    id:loginform-username    ${username_bee_cloud}
+    input text    id:loginform-password    ${password_bee_cloud}
     click element    xpath://*[@id="login-form"]/div[3]/ul/button
     Sleep    3s
 
@@ -48,8 +51,14 @@ Get API Pembelian Kemudian Lakukan Input Data
         ${contentString}=    convert to string    ${response.content}
         ${contentData}=    evaluate    json.loads($contentString)    json
         ${Tanggal}=    convert to string    ${contentData['Tanggal']}
+        
         ${Termin}=    convert to string    ${contentData['Termin']}
+        ${indexTermin}=    convert to integer    ${contentData['indexTermin']}
+
         ${Cabang}=    convert to string    ${contentData['Cabang']}
+        ${indexCabang}=    convert to integer    ${contentData['indexCabang']}
+
+        ${Notes}=    convert to string    ${contentData['Notes']}
         ${idRobotPembelian}=    convert to string    ${contentData['idRobotPembelian']}
         @{DataPembelian}=    Copy List    ${contentData['Data']}    deepcopy=True
         
@@ -65,6 +74,9 @@ Get API Pembelian Kemudian Lakukan Input Data
         #Masukkan termin
         click element    xpath://*[@id="s2id_cash_id-id"]/a
         input text    xpath://*[@id="s2id_autogen2_search"]    ${Termin}
+        FOR    ${index}    IN RANGE    0    ${indexTermin}
+            Press Key    xpath://*[@id="s2id_autogen2_search"]    \ue015
+        END
         Press Keys    xpath://*[@id="s2id_autogen2_search"]    ENTER
         Sleep    1s
 
@@ -83,6 +95,10 @@ Get API Pembelian Kemudian Lakukan Input Data
             Sleep    1s
             ${loopCount}=    Set Variable    ${loopCount+1}
         END
+
+        execute javascript    window.scrollTo(0,document.body.scrollHeight)
+        Sleep    1s
+        input text    xpath://*[@id="purc-note"]    ${Notes}
 
         IF    ${loopCount} > 1
             # /html/body/div[3]/div[2]/div[1]/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div/table/tbody/tr[1]/td[11]/a[1]
@@ -110,6 +126,9 @@ Get API Pembelian Kemudian Lakukan Input Data
                 #edit gudang
                 click element    xpath://*[@id="s2id_dlgpurcd_wh_id"]/a
                 input text    xpath://*[@id="s2id_autogen10_search"]    ${DataLoop['gudang']}
+                FOR    ${index}    IN RANGE    0    ${DataLoop['indexGudang']}
+                    Press Key    xpath://*[@id="s2id_autogen10_search"]    \ue015
+                END
                 Press Keys    xpath://*[@id="s2id_autogen10_search"]    ENTER
 
                 #click update
@@ -118,17 +137,6 @@ Get API Pembelian Kemudian Lakukan Input Data
                 
                 click element    xpath://*[@id="btnAdd"]
                 Sleep    2s
-
-                #click dan edit di keterangan
-                ${newText}=    Set Variable    ${DataLoop['namaItem']}  
-                ${newText}=    Catenate    ${DataLoop['qty']} 
-                ${newText}=    Catenate    ${DataLoop['satuan']}  
-                ${newText}=    Catenate    Rp. 
-                ${newText}=    Catenate    ${DataLoop['total']}
-                
-                ${original_text}=    Get Element Attribute    xpath://*[@id="purc-note"]    value
-                input text    xpath://*[@id="purc-note"]    ${original_text} ${newText}
-                Press Keys    xpath://*[@id="purc-note"]    ENTER
             END
         ELSE
             ${newXPath}=    Set Variable    ${xpathTablePembelian}/tr/td[11]/a[1]
@@ -150,6 +158,9 @@ Get API Pembelian Kemudian Lakukan Input Data
             #edit gudang
             click element    xpath://*[@id="s2id_dlgpurcd_wh_id"]/a
             input text    xpath://*[@id="s2id_autogen10_search"]    ${DataLoop['gudang']}
+            FOR    ${index}    IN RANGE    0    ${DataLoop['indexGudang']}
+                Press Key    xpath://*[@id="s2id_autogen10_search"]    \ue015
+            END
             Press Keys    xpath://*[@id="s2id_autogen10_search"]    ENTER
 
             #click update
@@ -158,23 +169,14 @@ Get API Pembelian Kemudian Lakukan Input Data
                 
             click element    xpath://*[@id="btnAdd"]
             Sleep    1s
-
-            #click dan edit di keterangan
-            input text    xpath://*[@id="purc-note"]    ${DataLoop['namaItem']}
-            Press Keys    xpath://*[@id="purc-note"]    TAB
-            input text    xpath://*[@id="purc-note"]    ${DataLoop['qty']}
-            Press Keys    xpath://*[@id="purc-note"]    SPACE
-            input text    xpath://*[@id="purc-note"]    ${DataLoop['satuan']}
-            Press Keys    xpath://*[@id="purc-note"]    TAB
-            input text    xpath://*[@id="purc-note"]    Rp 
-            Press Keys    xpath://*[@id="purc-note"]    SPACE
-            input text    xpath://*[@id="purc-note"]    ${DataLoop['total']}
-            Press Keys    xpath://*[@id="purc-note"]    ENTER
         END
 
         #pilih cabang
         click element    xpath://*[@id="s2id_purc-branch_id"]/a
         input text    xpath://*[@id="s2id_autogen6_search"]    ${Cabang}
+        FOR    ${index}    IN RANGE    0    ${indexCabang}
+            Press Key    xpath://*[@id="s2id_autogen6_search"]    \ue015
+        END
         Press Keys    xpath://*[@id="s2id_autogen6_search"]    ENTER
         Sleep    1s
 

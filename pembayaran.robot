@@ -74,7 +74,19 @@ Get API Pembayaran Kemudian Lakukan Input Data
         FOR    ${DataLoop}    IN    @{DataPembayaran}
             click element    xpath://*[@id="tabPpaid"]/div/div/div[1]/button[3]
             Press Keys    xpath://*[@id="dlgAcc-code"]    CTRL+a+BACKSPACE
-            input text    xpath://*[@id="dlgAcc-code"]    ${DataLoop}
+            input text    xpath://*[@id="dlgAcc-code"]    ${DataLoop['kodeAkun']}
+            Press Keys    xpath://*[@id="dlgAcc-code"]    ENTER
+            click element    xpath://*[@id="btn_dlgAcc"]
+
+            Sleep    3s
+
+            click element    xpath://*[@id="w0-container"]/table/tbody/tr/td[2]/a
+
+            Sleep    1s
+
+            Press Keys    xpath://*[@id="dlgAccAmt-amount"]    CTRL+a+BACKSPACE
+            input text    xpath://*[@id="dlgAccAmt-amount"]    ${DataLoop['jumlahBayar']}
+            click element    xpath://*[@id="btnAddAccAmt"]
         END
     END
 
