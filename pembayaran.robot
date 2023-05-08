@@ -51,13 +51,11 @@ Get API Pembayaran Kemudian Lakukan Input Data
         ${contentData}=    evaluate    json.loads($contentString)    json
         ${Tanggal}=    convert to string    ${contentData['Tanggal']}
 
-        ${Termin}=    convert to string    ${contentData['Termin']}
-        ${indexTermin}=    convert to integer    ${contentData['indexTermin']}
+        ${keywoard}=    convert to string    ${contentData['keywoard']}
 
-        ${indexKas}=    convert to integer    ${contentData['indexKas']}
+        ${kas}=    convert to string    ${contentData['kas']}
 
-        ${Cabang}=    convert to string    ${contentData['Cabang']}
-        ${indexCabang}=    convert to integer    ${contentData['indexCabang']}
+        ${Cabang}=    convert to string    ${contentData['cabang']}
 
         ${Keterangan}=    convert to string    ${contentData['Keterangan']}
         
@@ -77,10 +75,23 @@ Get API Pembayaran Kemudian Lakukan Input Data
         #Masukkan Cabang
         click element    xpath://*[@id="s2id_branch_id"]/a
         Press Keys    xpath://*[@id="s2id_autogen1_search"]    CTRL+a+BACKSPACE
-        input text    xpath://*[@id="s2id_autogen1_search"]    ${Cabang}[0:10]
-        FOR    ${index}    IN RANGE    0    ${indexCabang}
+        input text    xpath://*[@id="s2id_autogen1_search"]    ${keywoard}[0:10]
+        ${scroll_cabang}    Set Variable    ${1}
+        ${count_cabang}    Get Element Count    xpath://*[@id="select2-results-1"]/li
+        FOR    ${index}    IN RANGE    1    ${count_cabang}
+            ${textCabang}    Get Text    xpath://*[@id="select2-results-1"]/li[${index}]/div
+            IF    '${textCabang}' == '${Cabang}'    BREAK
+            ${scroll_cabang}=    Set Variable   ${scroll_cabang + 1}
             Press Key    xpath://*[@id="s2id_autogen1_search"]    \ue015
+            Sleep     1s
         END
+        #Pastikan data yang ada di cabang sudah benar
+        IF    ${count_cabang} == ${1}
+            ${textFinalCabang}    Get Text    xpath://*[@id="select2-results-1"]/li/div
+        ELSE
+            ${textFinalCabang}    Get Text    xpath://*[@id="select2-results-1"]/li[${scroll_cabang}]/div
+        END
+        Should Be Equal As Strings    ${textFinalCabang}     ${Cabang}
         Press Keys    xpath://*[@id="s2id_autogen1_search"]    ENTER
         Sleep    1s
 
@@ -129,10 +140,23 @@ Get API Pembayaran Kemudian Lakukan Input Data
 
         #Pilih kas bank
         click element    xpath://*[@id="s2id_dlgpaymtd_refid_cash"]/a
-        input text    xpath://*[@id="s2id_autogen28_search"]    ${Termin}
-        FOR    ${index}    IN RANGE    0    ${indexKas}
+        input text    xpath://*[@id="s2id_autogen28_search"]    ${keywoard}
+        ${scroll_kas}    Set Variable    ${1}
+        ${count_kas}    Get Element Count    xpath://*[@id="select2-results-28"]/li
+        FOR    ${index}    IN RANGE    1    ${count_kas}
+            ${textKas}    Get Text    xpath://*[@id="select2-results-28"]/li[${index}]/div
+            IF    '${textKas}' == '${kas}'    BREAK
+            ${scroll_kas}=    Set Variable   ${scroll_kas + 1}
             Press Key    xpath://*[@id="s2id_autogen28_search"]    \ue015
+            Sleep    1s
         END
+        #Pastikan data yang ada di kas sudah benar
+        IF    ${count_kas} == ${1}
+            ${textFinalKas}    Get Text    xpath://*[@id="select2-results-28"]/li/div
+        ELSE
+            ${textFinalKas}    Get Text    xpath://*[@id="select2-results-28"]/li[${scroll_kas}]/div
+        END
+        Should Be Equal As Strings    ${textFinalKas}     ${kas}
         Press Keys    xpath://*[@id="s2id_autogen28_search"]    ENTER
 
         #Klik add di cara bayar

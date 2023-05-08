@@ -52,11 +52,12 @@ Get API Pembelian Kemudian Lakukan Input Data
         ${contentData}=    evaluate    json.loads($contentString)    json
         ${Tanggal}=    convert to string    ${contentData['Tanggal']}
         
-        ${Termin}=    convert to string    ${contentData['Termin']}
-        ${indexTermin}=    convert to integer    ${contentData['indexTermin']}
+        ${Keywoard}=    convert to string    ${contentData['keywoard']}
 
-        ${Cabang}=    convert to string    ${contentData['Cabang']}
-        ${indexCabang}=    convert to integer    ${contentData['indexCabang']}
+        ${Termin}=    convert to string    ${contentData['termin']}
+        # log to console    ${Termin}
+
+        ${Cabang}=    convert to string    ${contentData['cabang']}
 
         ${Notes}=    convert to string    ${contentData['Notes']}
         ${idRobotPembelian}=    convert to string    ${contentData['idRobotPembelian']}
@@ -73,15 +74,29 @@ Get API Pembelian Kemudian Lakukan Input Data
 
         #Masukkan termin
         click element    xpath://*[@id="s2id_cash_id-id"]/a
-        input text    xpath://*[@id="s2id_autogen2_search"]    ${Termin}
-        FOR    ${index}    IN RANGE    0    ${indexTermin}
+        input text    xpath://*[@id="s2id_autogen2_search"]    ${Keywoard}
+        ${scroll_termin}    Set Variable    ${1}
+        ${count_termin}    get element count    xpath://*[@id="select2-results-2"]/li
+        FOR    ${index}    IN RANGE    1    ${count_termin}
+            ${textTermin}    Get Text    xpath://*[@id="select2-results-2"]/li[${index}]/div
+            # log to console    ${textTermin}
+            IF    '${textTermin}' == '${Termin}'    BREAK
+            ${scroll_termin}=    Set Variable   ${scroll_termin + 1}
             Press Key    xpath://*[@id="s2id_autogen2_search"]    \ue015
         END
+
+        #Pastikan data yang ada di termin sudah benar
+        IF    ${count_termin} == ${1}
+            ${textFinalTermin}    Get Text    xpath://*[@id="select2-results-2"]/li/div
+        ELSE
+            ${textFinalTermin}    Get Text    xpath://*[@id="select2-results-2"]/li[${scroll_termin}]/div
+        END
+        Should Be Equal As Strings    ${textFinalTermin}     ${Termin}
         Press Keys    xpath://*[@id="s2id_autogen2_search"]    ENTER
         Sleep    1s
 
-        ${loopCount}=    Set Variable    ${0}
         #Masukkan semua input pembelian
+        ${loopCount}=    Set Variable    ${0}
         FOR    ${DataLoop}    IN    @{DataPembelian}
             ${idItemLoop}    convert to string    ${DataLoop['idBeeCloud']}
             
@@ -125,18 +140,27 @@ Get API Pembelian Kemudian Lakukan Input Data
 
                 #edit gudang
                 click element    xpath://*[@id="s2id_dlgpurcd_wh_id"]/a
-                input text    xpath://*[@id="s2id_autogen10_search"]    ${DataLoop['gudang']}
-                FOR    ${index}    IN RANGE    0    ${DataLoop['indexGudang']}
+                input text    xpath://*[@id="s2id_autogen10_search"]    ${Keywoard}
+                ${scroll_gudang}    Set Variable    ${1}
+                ${count_gudang}    Get Element Count    xpath://*[@id="select2-results-10"]/li
+                FOR    ${index}    IN RANGE    1    ${count_gudang}
+                    ${textGudang}    Get Text    xpath://*[@id="select2-results-10"]/li[${index}]/div
+                    IF    '${textGudang}' == '${DataLoop['gudang']}'    BREAK
+                    ${scroll_gudang}=    Set Variable   ${scroll_gudang + 1}
                     Press Key    xpath://*[@id="s2id_autogen10_search"]    \ue015
                 END
+                #Pastikan data yang ada di gudang sudah benar
+                IF    ${count_termin} == ${1}
+                    ${textFinalGudang}    Get Text    xpath://*[@id="select2-results-10"]/li/div
+                ELSE
+                    ${textFinalGudang}    Get Text    xpath://*[@id="select2-results-10"]/li[${scroll_gudang}]/div
+                END
+                Should Be Equal As Strings    ${textFinalGudang}     ${DataLoop['gudang']}
                 Press Keys    xpath://*[@id="s2id_autogen10_search"]    ENTER
 
                 #click update
-                execute javascript    window.scrollTo(0,document.body.scrollHeight)
-                Sleep   1s
-                
                 click element    xpath://*[@id="btnAdd"]
-                Sleep    2s
+                Sleep    1s
             END
         ELSE
             ${newXPath}=    Set Variable    ${xpathTablePembelian}/tr/td[11]/a[1]
@@ -157,10 +181,22 @@ Get API Pembelian Kemudian Lakukan Input Data
 
             #edit gudang
             click element    xpath://*[@id="s2id_dlgpurcd_wh_id"]/a
-            input text    xpath://*[@id="s2id_autogen10_search"]    ${DataLoop['gudang']}
-            FOR    ${index}    IN RANGE    0    ${DataLoop['indexGudang']}
+            input text    xpath://*[@id="s2id_autogen10_search"]    ${Keywoard}
+            ${scroll_gudang}    Set Variable    ${1}
+            ${count_gudang}    Get Element Count    xpath://*[@id="select2-results-10"]/li
+            FOR    ${index}    IN RANGE    1    ${count_gudang}
+                ${textGudang}    Get Text    xpath://*[@id="select2-results-10"]/li[${index}]/div
+                IF    '${textGudang}' == '${DataLoop['gudang']}'    BREAK
+                ${scroll_gudang}=    Set Variable   ${scroll_gudang + 1}
                 Press Key    xpath://*[@id="s2id_autogen10_search"]    \ue015
             END
+            #Pastikan data yang ada di gudang sudah benar
+            IF    ${count_termin} == ${1}
+                ${textFinalGudang}    Get Text    xpath://*[@id="select2-results-10"]/li/div
+            ELSE
+                ${textFinalGudang}    Get Text    xpath://*[@id="select2-results-10"]/li[${scroll_gudang}]/div
+            END
+            Should Be Equal As Strings    ${textFinalGudang}     ${DataLoop['gudang']}
             Press Keys    xpath://*[@id="s2id_autogen10_search"]    ENTER
 
             #click update
@@ -172,11 +208,24 @@ Get API Pembelian Kemudian Lakukan Input Data
         END
 
         #pilih cabang
+        execute javascript    window.scrollTo(0,document.body.scrollHeight)
         click element    xpath://*[@id="s2id_purc-branch_id"]/a
-        input text    xpath://*[@id="s2id_autogen6_search"]    ${Cabang}
-        FOR    ${index}    IN RANGE    0    ${indexCabang}
+        input text    xpath://*[@id="s2id_autogen6_search"]    ${Keywoard}
+        ${scroll_cabang}    Set Variable    ${1}
+        ${count_cabang}    Get Element Count    xpath://*[@id="select2-results-6"]/li
+        FOR    ${index}    IN RANGE    1    ${count_cabang}
+            ${textCabang}    Get Text    xpath://*[@id="select2-results-6"]/li[${index}]/div
+            IF    '${Cabang}' == '${textCabang}'    BREAK
+            ${scroll_cabang}=    Set Variable    ${scroll_cabang + 1}
             Press Key    xpath://*[@id="s2id_autogen6_search"]    \ue015
         END
+        #Pastikan data yang ada di cabang sudah benar
+        IF    ${count_cabang} == ${1}
+            ${textFinalCabang}    Get Text    xpath://*[@id="select2-results-6"]/li/div
+        ELSE
+            ${textFinalCabang}    Get Text    xpath://*[@id="select2-results-6"]/li[${scroll_cabang}]/div
+        END
+        Should Be Equal As Strings    ${textFinalCabang}     ${Cabang}
         Press Keys    xpath://*[@id="s2id_autogen6_search"]    ENTER
         Sleep    1s
 
