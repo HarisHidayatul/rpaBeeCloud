@@ -91,7 +91,7 @@ Get API Pembelian Kemudian Lakukan Input Data
         ELSE
             ${textFinalTermin}    Get Text    xpath://*[@id="select2-results-2"]/li[${scroll_termin}]/div
         END
-        Should Be Equal As Strings    ${textFinalTermin}     ${Termin}
+        Should Be Equal As Strings    '${textFinalTermin}'     '${Termin}'
         Press Keys    xpath://*[@id="s2id_autogen2_search"]    ENTER
         Sleep    1s
 
@@ -155,7 +155,7 @@ Get API Pembelian Kemudian Lakukan Input Data
                 ELSE
                     ${textFinalGudang}    Get Text    xpath://*[@id="select2-results-10"]/li[${scroll_gudang}]/div
                 END
-                Should Be Equal As Strings    ${textFinalGudang}     ${DataLoop['gudang']}
+                Should Be Equal As Strings    '${textFinalGudang}'     '${DataLoop['gudang']}'
                 Press Keys    xpath://*[@id="s2id_autogen10_search"]    ENTER
 
                 #click update
@@ -196,7 +196,7 @@ Get API Pembelian Kemudian Lakukan Input Data
             ELSE
                 ${textFinalGudang}    Get Text    xpath://*[@id="select2-results-10"]/li[${scroll_gudang}]/div
             END
-            Should Be Equal As Strings    ${textFinalGudang}     ${DataLoop['gudang']}
+            Should Be Equal As Strings    '${textFinalGudang}'     '${DataLoop['gudang']}'
             Press Keys    xpath://*[@id="s2id_autogen10_search"]    ENTER
 
             #click update
@@ -225,7 +225,7 @@ Get API Pembelian Kemudian Lakukan Input Data
         ELSE
             ${textFinalCabang}    Get Text    xpath://*[@id="select2-results-6"]/li[${scroll_cabang}]/div
         END
-        Should Be Equal As Strings    ${textFinalCabang}     ${Cabang}
+        Should Be Equal As Strings    '${textFinalCabang}'     '${Cabang}'
         Press Keys    xpath://*[@id="s2id_autogen6_search"]    ENTER
         Sleep    1s
 

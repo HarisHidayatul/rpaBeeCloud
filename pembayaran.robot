@@ -91,7 +91,7 @@ Get API Pembayaran Kemudian Lakukan Input Data
         ELSE
             ${textFinalCabang}    Get Text    xpath://*[@id="select2-results-1"]/li[${scroll_cabang}]/div
         END
-        Should Be Equal As Strings    ${textFinalCabang}     ${Cabang}
+        Should Be Equal As Strings    '${textFinalCabang}'     '${Cabang}'
         Press Keys    xpath://*[@id="s2id_autogen1_search"]    ENTER
         Sleep    1s
 
@@ -156,7 +156,7 @@ Get API Pembayaran Kemudian Lakukan Input Data
         ELSE
             ${textFinalKas}    Get Text    xpath://*[@id="select2-results-28"]/li[${scroll_kas}]/div
         END
-        Should Be Equal As Strings    ${textFinalKas}     ${kas}
+        Should Be Equal As Strings    '${textFinalKas}'     '${kas}'
         Press Keys    xpath://*[@id="s2id_autogen28_search"]    ENTER
 
         #Klik add di cara bayar
