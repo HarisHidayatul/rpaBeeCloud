@@ -233,7 +233,7 @@ Get API Pembelian Kemudian Lakukan Input Data
         execute javascript    window.scrollTo(0,document.body.scrollHeight)
         Sleep   1s
         click element    xpath://*[@id="grpbtn-tour-purc"]/div/div/button
-        Sleep    2s
+        Sleep    10s
         execute javascript    window.scrollTo(0,-document.body.scrollHeight)
         Sleep   1s
         click element    xpath://*[@id="new_button"]

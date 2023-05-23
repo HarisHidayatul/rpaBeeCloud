@@ -168,7 +168,7 @@ Get API Pembayaran Kemudian Lakukan Input Data
 
         #Klik simpan
         click element    xpath://*[@id="frmPay"]/div[2]/div/div/button
-        Sleep    2s
+        Sleep    8s
 
         #Masukkan data setelahnya
         click element    xpath://*[@id="new_button"]
