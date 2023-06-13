@@ -115,6 +115,8 @@ Get API Pembelian Kemudian Lakukan Input Data
         Sleep    1s
         input text    xpath://*[@id="purc-note"]    ${Notes}
 
+        ${scroll_page}=    Set Variable    ${0}
+
         IF    ${loopCount} > 1
             # /html/body/div[3]/div[2]/div[1]/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div/table/tbody/tr[1]/td[11]/a[1]
             # /html/body/div[3]/div[2]/div[1]/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div/table/tbody/tr[1]/td[11]/a[1]
@@ -122,9 +124,10 @@ Get API Pembelian Kemudian Lakukan Input Data
             FOR    ${DataLoop}    IN    @{DataPembelian}
                 #Open file untuk edit
                 ${loopCount}=    Set Variable    ${loopCount+1}
+                ${scroll_page}=    Set Variable    ${scroll_page+75}
                 ${newXPath}=    Set Variable    ${xpathTablePembelian}/tr[${loopCount}]/td[11]/a[1]
                 
-                execute javascript    window.scrollTo(0, document.body.scrollHeight/3)
+                execute javascript    window.scrollTo(0, ${scroll_page})
                 Sleep   1s
 
                 click element    xpath:${newXPath}
